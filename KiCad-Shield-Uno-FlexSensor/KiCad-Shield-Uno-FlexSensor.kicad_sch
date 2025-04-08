@@ -7869,7 +7869,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0,1µ"
+		(property "Value" "1µ"
 			(at 203.2 115.5699 0)
 			(effects
 				(font
