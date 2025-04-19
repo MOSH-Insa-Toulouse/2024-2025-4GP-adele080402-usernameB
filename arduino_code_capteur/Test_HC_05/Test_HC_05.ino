@@ -1,35 +1,35 @@
 #include <SoftwareSerial.h>
-#define rxPin 11 //Broche 11 en tant que RX, � raccorder sur TX du HC-05
-#define txPin 10 //Broche 10 en tant que RX, � raccorder sur TX du HC-05
+#define rxPin 8 //Broche 8 en tant que RX, � raccorder sur TX du HC-05
+#define txPin 7 //Broche 7 en tant que RX, � raccorder sur TX du HC-05
+#define graphPin A0
 #define baudrate 9600
 SoftwareSerial mySerial(rxPin ,txPin); //D�finition du software serial
+// unsigned long previousMillis = 0;
+// const long interval = 1000; // 1 seconde
 
 /////// Il faut se connecter d'abord sur le smartphone avec l'appli "serial bluetooth terminal" 
 ////// Le nom de notre module est HC0523
 ////// On peut communiquer avec le smartphone en envoyant un message depuis le pc et inversement
+
 void setup(){
   pinMode(rxPin,INPUT);
-  pinMode(txPin,OUTPUT);
-    
+  pinMode(txPin,OUTPUT);    
   mySerial.begin(baudrate);
   Serial.begin(baudrate);
 }
 
 void loop(){
-    int i = 0; 
-	char someChar[32] ={0};
-	//when characters arrive over the serial port...
+  // unsigned long currentMillis = millis();
 
-	while (Serial.available()) {
-	   do{
-		someChar[i++] = Serial.read();
-		delay(3);		
-	   }while (Serial.available() > 0);
-	   
-	   mySerial.println(someChar); 
-	   Serial.println(someChar); 
-	}
-	while (mySerial.available()) {
-		Serial.print((char)mySerial.read());
-	}
+  // if (currentMillis - previousMillis >= interval) {
+  //   previousMillis = currentMillis;
+
+    int analogValue = analogRead(graphPin);
+    float Y = analogValue;
+    Serial.println(Y);
+    mySerial.println(Y);
+    delay(200);
+    // mySerial.println(";");
+    // mySerial.println(currentMillis);
+  //  }
 }

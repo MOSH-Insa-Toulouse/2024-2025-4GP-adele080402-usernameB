@@ -30,7 +30,7 @@ The MCP IC circuit:
 
 const int ssMCPin = 10; // Define the slave select for the digital pot
 
-#define WAIT_DELAY 5000
+#define WAIT_DELAY 500
 
 void SPIWrite(uint8_t cmd, uint8_t data, uint8_t ssPin) // SPI write the command and data to the MCP IC connected to the ssPin
 {
@@ -40,9 +40,35 @@ void SPIWrite(uint8_t cmd, uint8_t data, uint8_t ssPin) // SPI write the command
   
   SPI.transfer(cmd);        // Send command code
   SPI.transfer(data);       // Send associated value
-  
   digitalWrite(ssPin, HIGH);// SS pin high to de-select chip
   SPI.endTransaction();
+}
+
+void initialize() {                     // send the command byte of value 100 (initial value)
+  spi_out(CLKpin, cmd_byte2, initial_value);
+}
+
+void spi_out(int CS, byte cmd_byte, byte data_byte){                        // we need this function to send command byte and data byte to the chip
+    
+    digitalWrite (CS, LOW);                                                 // to start the transmission, the chip select must be low
+    spi_transfer(cmd_byte); // invio il COMMAND BYTE
+    delay(2);
+    spi_transfer(data_byte); // invio il DATA BYTE
+    delay(2);
+    digitalWrite(CS, HIGH);                                                 // to stop the transmission, the chip select must be high
+}
+
+void spi_transfer(byte working) {
+    for(int i = 1; i <= 8; i++) {                                           // Set up a loop of 8 iterations (8 bits in a byte)
+     if (working > 127) { 
+       digitalWrite (MOSI_signal,HIGH) ;                                    // If the MSB is a 1 then set MOSI high
+     } else { 
+       digitalWrite (MOSI_signal, LOW) ; }                                  // If the MSB is a 0 then set MOSI low                                           
+    
+    digitalWrite (CLK_signal,HIGH) ;                                        // Pulse the CLK_signal high
+    working = working << 1 ;                                                // Bit-shift the working byte
+    digitalWrite(CLK_signal,LOW) ;                                          // Pulse the CLK_signal low
+    }
 }
 
 void setup() 

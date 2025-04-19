@@ -12,20 +12,37 @@ volatile int encoder0Pos = 0;
 void setup() { 
   pinMode(encoder0PinA, INPUT); 
   digitalWrite(encoder0PinA, HIGH);       // turn on pullup resistor
-
   pinMode(encoder0PinB, INPUT); 
   digitalWrite(encoder0PinB, HIGH);       // turn on pullup resistor
-
   attachInterrupt(0, doEncoder, RISING); // encoder pin on interrupt 0 - pin2
 
   Serial.begin (9600);
-  Serial.println("start");                // a personal quirk
+  
 } 
 
 void loop(){
   //do some stuff here - the joy of interrupts is that they take care of themselves
-  //Serial.print("Position:");
+  Serial.print("Position:");
   Serial.println (encoder0Pos, DEC);  //Angle = (360 / Encoder_Resolution) * encoder0Pos
+  delay(100);
+}
+
+void menuchoix (){
+
+  int menu = 0;
+  switch (menu) {
+    case 0 :
+    Serial.println("affichage menu graphite");
+    break;
+
+    case 1 : 
+    Serial.println("affichage menu flex sensor");
+    break;
+
+    case 2 : 
+    Serial.println("affichage menu potentiometre");
+    break;
+  }
 }
 
 void doEncoder() {
