@@ -25,3 +25,6 @@ Pour ce faire, nous avons réalisé un PCB sur KiCad, que nous avons pu intégre
 - Potentiomètre Digital : MCP 41050
 - Résistances : 1kOhms, 10kOhms, 100kOhms
 - Capacités : 2x100nF, 1x1uF
+
+## Création du PCB
+### Kicad
