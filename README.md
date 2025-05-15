@@ -26,16 +26,32 @@ Pour ce faire, nous avons réalisé un PCB sur KiCad, que nous avons pu intégre
 - Résistances : 1kOhms, 10kOhms, 100kOhms
 - Capacités : 2x100nF, 1x1uF
 
+## Simulation du montage sur LTSpice
+<insérer photo>
+
 ## Création du PCB
 ### KiCad
 
 Pour commencer le projet, nous avons dû apprivoiser le logiciel KiCad. Nous avons eu du mal à assimiler les différentes choses à faire mais nous avons finalement réussi à imprimer notre PCB sans embûches. 
-Tout d'abord, nous avons dû reprendre le circuit que nous avions réalisé sur LTSpice qui simulait le circuit final. (INS2RER UNE PHOTO)
-Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous avons modéliser le circuit amplificateur, ainsi que le potentiomètre digital, l'encodeur rotatoire et l'écran OLED. 
+Tout d'abord, nous avons dû reprendre le circuit que nous avions réalisé sur LTSpice qui simulait le circuit final. 
+
+Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous avons modéliser le circuit amplificateur, ainsi que différents dispositifs également présents sur notre PCB : 
+
+- le potentiomètre digital 
+(INSERER UNE PHOTO)
+
+- l'encodeur rotatoire
+(INSERER UNE PHOTO)
+
+- l'écran OLED
 (INSERER UNE PHOTO)
 
 Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments, nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois, mais nous avons réussi à réaliser notre PCB avec seulement 3 vias. Nous avons disposé un plan de masse afin de simplifier le circuit. 
 Une fois validé par Cathy et M. Grisolia, nous avons pu passer à l'impression.
+
+### Schéma complet
+
+(INSERER UNE PHOTO)
 
 ### Impression du PCB
 
@@ -44,4 +60,25 @@ Une fois la plaquette dessinée, nous sommes allés percer la plaque (les diamè
 
 ## Code Arduino
 
+Nous avons ensuite rédigé le code .ino, écrit en C++.
+Pour ce faire, nous nous sommes inspirés des codes étudiés durant les TPs/TDs tout au long du deuxième semestre, qui nous ont permis de mieux comprendre comment fonctionnait chaque composant.
+Nous avons rédigé les codes de chaque composant indépendamment pour les tester un par un, puis nous avons écrit le code en rajoutant peu à peu les codes fonctionnels et en les reliant les uns aux autres.
+
+
+
+
 ## Application Android
+
+### DATASHEET
+
+Pour écrire la datasheet, plusieurs problèmes :
+
+- HB : marche bien, on a pu effectuer les mesures
+- B : résistance bloquée à deux valeurs : 188 et 191 même si on tord dans tous les sens
+- 6B : pareil mais bloqué a 650
+- 2H ça fluctue trop on n'arrive pas à avoir de données stable
+
+==> On voit que plus le crayon est dur (2H) plus le capteur est sensible et les valeurs fluctuent beaucoup trop
+Plus le capteur est gras, moins il est sensible et la resistance reste bloquée aux même valeurs
+
+==> Impossible de relever des données 

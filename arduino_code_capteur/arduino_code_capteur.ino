@@ -36,6 +36,7 @@ float R2 = 50000; //A modifier c'est la valeur du pot digital
 const float R5 = 10000;
 const float Mohm = 0.000001;
 
+
 // Digital Potentiometer
 #define CSpin 10
 #define SDIpin 11
@@ -44,22 +45,25 @@ const float Mohm = 0.000001;
 #define MCP_WRITE 0b00010001
 #define MCP_SHTDWN 0b00100001
 const byte address = 0x11;
+int pos = 0;      // pour déterminer R2 (potentiomètre) (0<pos<255) , plus pos -> 0, plus R2 est grand
 
 
 // Rotatory Encoder 
 #define encodeur0pinA 2
 #define encodeur0pinB 4
 #define SWITCHpin 5
-int encodeurVal = 0;
-int lastEncodeurVal = 0;
-int encodeurValB =0;
-bool buttonPressed = false;
+// int encodeurVal = 0;
+// int lastEncodeurVal = 0;
+// int encodeurValB =0;
+// bool buttonPressed = false;
 
-//Menu variables
-int MenuIndex = 0;
-int currentMenu =-1; // valeur du menu principal
-String menus[] = {"graph","flex","pot"};
-const int menuCount = sizeof(menus) / sizeof(menus[0]);
+// //Menu variables
+// volatile int menuIndex = 0;
+// int lastMenuIndex = -1;
+// bool inSubMenu = false;
+// int currentMenu =-1; // valeur du menu principal
+// String menus[] = {"graph","flex","pot"};
+// const int menuCount = sizeof(menus) / sizeof(menus[0]);
 
 
 #define baudrate 9600
@@ -80,18 +84,21 @@ void setup() {
   pinMode(txPin,OUTPUT);
   pinMode(flexPin, INPUT);
   pinMode(CSpin, OUTPUT);
-  pinMode(encodeur0pinA,INPUT);
-  pinMode(encodeur0pinB,INPUT);
+  // pinMode(encodeur0pinA,INPUT);
+  // pinMode(encodeur0pinB,INPUT);
+  // pinMode(SWITCHpin, INPUT);
+
 
 
   //Potentiometer setup
   digitalWrite(CSpin,HIGH); //SPI chip disabled
   SPI.begin();
+  int R2 = digitalPotWrite(pos);
 
-  //Encodeur rotatoire setup
-  digitalWrite(encodeur0pinA, HIGH);
-  digitalWrite(encodeur0pinB, HIGH);
-  attachInterrupt(0,doEncodeur,RISING)
+  // //Encodeur rotatoire setup
+  // digitalWrite(encodeur0pinA, HIGH);
+  // digitalWrite(encodeur0pinB, HIGH);
+  // // attachInterrupt(0,doEncoder,RISING);
 
 }
 
@@ -104,10 +111,12 @@ float digitalPotWrite (int value){
   SPI.transfer(value);
   digitalWrite(CSpin, HIGH);
   float Rdp = (50000.0 * (255 - value)) / 255.0; 
+  //Serial.println(Rdp);
   return Rdp;
 }
 
-/////////////Measure/////////////////////////////////////////
+///////////////////Measure/////////////////////////////////////////
+
 float flexMeasure() {
 
   // Read the ADC, and calculate voltage and resistance from it
@@ -125,13 +134,13 @@ float flexMeasure() {
 
 float graphiteMeasure () {
 
-  R2 = digitalPotWrite(0);
   float V = analogRead(graphPin);
   Serial.println("V =" + String(V));
   float Vadc = V*5.0/1024.0;
   Serial.println("Vadc =" + String(Vadc));
-  float Rg = (R8*(1+R4/R2)*(VCC/Vadc)-R8-R5)*Mohm;
-  Serial.println("Rgraphite ="+ String(Rg) + "Mohms");
+  float Rg = (R8*(1+R4/R2)*(VCC/Vadc)-R8-R5)*kohm;
+  Serial.println("Rgraphite ="+ String(Rg) + "kohms");
+  delay(200);
   return V;
 
 }
@@ -175,14 +184,14 @@ void graphiteMenu(float V) {
   ecranOLED.println("--Menu GraphSensor--");
   ecranOLED.println();
   ecranOLED.print("Tension =");
-  ecranOLED.println(V);
+  ecranOLED.println(Vadc);
   ecranOLED.print("R =");
-  ecranOLED.print((R8*(1+R4/R2)*(VCC/Vadc)-R8-R5)*Mohm);
-  ecranOLED.println(" MOhm");
+  ecranOLED.print((R8*(1+R4/R2)*(VCC/Vadc)-R8-R5)*kohm);
+  ecranOLED.println(" kOhm");
   ecranOLED.println();
   ecranOLED.print("             BACK");
   ecranOLED.display(); // Transfert le buffer à l'écran
-  delay(500);
+  delay(200);
   ecranOLED.clearDisplay();
   ecranOLED.setCursor(0, 0);
 }
@@ -231,38 +240,19 @@ void potMenu(float Rdp) {
   ecranOLED.display();
   
 }
-//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
-void encodeurRot() {
-  encodeurVal = digitalRead(encodeur0pinA);
-  if((encodeurVal == HIGH) && (millis() - milliB > B_time)) {
-    menuItem++;
-    milli_B = millis();
-  }
-  lastEncodeurVal = digitalRead(encodeur0pinB);
-  if((lastEncodeurVal == HIGH) && (millis() - milliB > B_time)) {
-    menuItem--;
-    milli_B = millis();
-  }
 
-  buttonPressed = digitalRead(SWITCHpin);
-  if (buttonPressed == HIGH){
-    menuIndex=menuChosen;
-    
-
-  }
-
-}
 
 
 void loop() {
-
-// graphiteMeasure();
+graphiteMeasure();
 graphiteMenu(graphiteMeasure());
-delay(500);
-potMenu(digitalPotWrite(0));
-delay(500);
-flexMenu(flexMeasure());
-//bluetooth();
-delay(500);
+delay(100);
+
+//digitalPotWrite(0);
+// delay(500);
+// flexMenu(flexMeasure());
+// //bluetooth();
+// delay(500);
 }
