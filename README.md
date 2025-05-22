@@ -27,7 +27,7 @@ Pour ce faire, nous avons réalisé un PCB sur KiCad, que nous avons pu intégre
 - Capacités : 2x100nF, 1x1uF
 
 ## Simulation du montage sur LTSpice
-<insérer photo>
+
 
 ## Création du PCB
 ### KiCad
@@ -51,12 +51,31 @@ Une fois validé par Cathy et M. Grisolia, nous avons pu passer à l'impression.
 
 ### Schéma complet
 
-(INSERER UNE PHOTO)
+![Schématique du PCB](https://github.com/user-attachments/assets/20b3bf86-4e35-498b-a52c-529bb1db0f77)
+
+                                            Schématique du PCB
+
+![Routage terminé du PCB](https://github.com/user-attachments/assets/7cc50e52-7f20-4848-a44f-224ce279f040)
+
+                                          Routage terminé du PCB
+                                          
+![Modèle 3D du PCB (face avant)](https://github.com/user-attachments/assets/e4782bd4-955f-4bdd-8529-4a3dec8962ba)
+
+                                          Modèle 3D du PCB (face avant)
+                                            
+![Modèle 3D du PCB (face arrière)](https://github.com/user-attachments/assets/bb23b73f-7a47-4d54-8471-7cf950edd41d)
+
+                                          Modèle 3D du PCB (face arrière)
+                                            
 
 ### Impression du PCB
 
 Pour imprimer le PCB, nous avons d'abord dû télécharger le fichier .gerber. Nous avons envoyé tout nos fichiers KiCad à Cathy qui nous a donné rendez vous au GEI. Là-bas, elle nous a expliqué toute la procédure.
 Une fois la plaquette dessinée, nous sommes allés percer la plaque (les diamètres sont de 0,8mm pour les composants, et 1mm pour les pins de l'arduino). Ensuite, nous avons soudé tous les composants. Cette partie était assez rapide.
+
+![image](https://github.com/user-attachments/assets/4790fe7c-b90f-444d-9095-e8fe2a9e6f41)
+
+                                             Fichier Gerber
 
 ## Code Arduino
 
@@ -64,10 +83,15 @@ Nous avons ensuite rédigé le code .ino, écrit en C++.
 Pour ce faire, nous nous sommes inspirés des codes étudiés durant les TPs/TDs tout au long du deuxième semestre, qui nous ont permis de mieux comprendre comment fonctionnait chaque composant.
 Nous avons rédigé les codes de chaque composant indépendamment pour les tester un par un, puis nous avons écrit le code en rajoutant peu à peu les codes fonctionnels et en les reliant les uns aux autres.
 
+Le plus difficile à coder était l'encodeur rotatoire. Nous avons essayé de nombreuses fois, en nous inspirant des codes des années précédentes, ou des codes présents sur internet (https://passionelectronique.fr/encodeur-rotatif-incremental-mecanique/).
+Cependant, nous n'avons pas réussi à écrire un code fonctionel qui nous permettait de naviguer entre les menus que nous avions créé. Nous avons décidé de garder les menus pour les différents composants (flex sensor, graphite sensor et potentiomètre digital) dans le code, pour pouvoir y accéder si besoin, et si de prochaines personnes voudraient tenter de rajouter la navigation entre les menus plus tard. 
 
-
+Nous n'avons malheureusement pas eu le loisir d'être très créative car nous avons passé beaucoup de temps à décortiquer le fonctionnement et l'écriture du code pour chaque composant.
 
 ## Application Android
+
+Pour l'application android,
+
 
 ### DATASHEET
 
