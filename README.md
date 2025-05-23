@@ -28,6 +28,10 @@ Pour ce faire, nous avons réalisé un PCB sur KiCad, que nous avons pu intégre
 
 ## Simulation du montage sur LTSpice
 
+Avant de se lancer dans la réalisatin, nous avons réalisé le montage sur LTSpice. Cela nous a permis de comprendre comment l'arduino Uno pouvait acquérir les données du capteur alors que JE SAUS PAS
+
+![montage avec capteur image](https://github.com/user-attachments/assets/28f1d7cc-1f73-464c-ba3b-776b41706680)
+
 
 ## Création du PCB
 ### KiCad
@@ -104,19 +108,28 @@ Pour l'application android, nous
 
 ### DATASHEET
 
-Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre capteur, tout en essayant de bien en expliquer son fonctionnement. Nous avons 
+Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre capteur, tout en essayant de bien en expliquer son fonctionnement. La datasheet donne également un exemple d'application, celui que l'on a expérimenté justement au cours de ce projet.
 
 
 ### Tests de notre capteur et relevé de valeurs
 
 
+![Capture d'écran 2025-05-22 152802](https://github.com/user-attachments/assets/5ec3c751-0294-42a1-8ead-dd8882eba561)
+
+![Capture d'écran 2025-05-22 152732](https://github.com/user-attachments/assets/c512df0d-f794-4e0d-974d-6224edc2126a)
+
+Pour es relevés de valeur, nous avons rencontré uun problème de consistance dans les mesures.
+Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avons dû improviser et tester le capteur avec des objets circulaire dont le diamètre variait assez pour avoir des données pertinentes. Ci-dessous est une photos des objets que nous avons utilisé.
+
+Nous avons essayé de suivre un protocole de mesure afin d'avoir les mesures les plus pertinentes possible. Cependant, nous n'avons pas eu des mesures très satisfaisantes. 
+Plus la mine de crayon est dure (2H), plus le capteur va être sensible et les valeurs vont fluctuer beaucoup, alors même que le capteur est immobile et qu'on n'y applique aucune déformation.
+Inversement, plus la mine de crayon est grasse (6B), moins le capteur va être sensible et les valeurs vont rester très stables, et on n'observera aucun changement de résistance même en appliquant une forte déformation.
+
+Aussi, la manière de déposer le graphite influence beaucoup les valeurs.
+
+Ns n'avons réussi a relever des valeurs uniquement pour les mines B et HB. Sinon, les valeurs n'étaient pas pertinentes malheureusement.
 
 - HB : marche bien, on a pu effectuer les mesures
 - B : résistance bloquée à deux valeurs : 188 et 191 même si on tord dans tous les sens
 - 6B : pareil mais bloqué a 650
 - 2H ça fluctue trop on n'arrive pas à avoir de données stable
-
-==> On voit que plus le crayon est dur (2H) plus le capteur est sensible et les valeurs fluctuent beaucoup trop
-Plus le capteur est gras, moins il est sensible et la resistance reste bloquée aux même valeurs
-
-==> Impossible de relever des données 
