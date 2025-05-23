@@ -3,8 +3,8 @@
 ## Description du projet
 
 Nous avons réalisé ce projet dans le cadre de l'UF "du capteur au banc de test en open source hardware", en 4ème année de Génie Physique à l'INSA de Toulouse.
-Le but de ce projet est de réaliser et tester un capteur low-tech, et d'évaluer son fonctionnement par rapport à un capteur commercialisé. Le capteur concerné s'apparente à une jauge d'extensométrie, réalisée avec du papier une mine de graphite.
-Pour ce faire, nous avons réalisé un PCB sur KiCad, que nous avons pu intégrer à une carte arduino UNO afin d'avoir un banc de test complet.
+Le but de ce projet est de réaliser et tester un capteur low-tech, et d'évaluer son fonctionnement par rapport à un capteur commercialisé, afin de voir s'il est lui-même industrialisable. Le capteur concerné s'apparente à une jauge de contrainte, réalisée avec du papier recouvert d'une couche de graphite.
+Pour ce faire, nous avons réalisé un PCB à partir du logiciel KiCad, que nous avons pu intégrer à une carte arduino UNO. Cela nous a permis d'effectuer des mesures et de tester notre capteur.
 
 ## Livrables
 
@@ -28,7 +28,7 @@ Pour ce faire, nous avons réalisé un PCB sur KiCad, que nous avons pu intégre
 
 ## Simulation du montage sur LTSpice
 
-Avant de se lancer dans la réalisatin, nous avons réalisé le montage sur LTSpice. Cela nous a permis de comprendre comment l'arduino Uno pouvait acquérir les données du capteur alors que JE SAUS PAS
+Avant de se lancer dans la réalisation, nous avons réalisé le montage sur LTSpice. Cela nous a permis de comprendre comment l'arduino Uno pouvait acquérir les données du capteur alors que JE SAUS PAS
 
 ![montage avec capteur image](https://github.com/user-attachments/assets/28f1d7cc-1f73-464c-ba3b-776b41706680)
 
