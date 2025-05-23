@@ -76,6 +76,12 @@ Une fois la plaquette dessinée, nous sommes allés percer la plaque (les diamè
 ![image](https://github.com/user-attachments/assets/4790fe7c-b90f-444d-9095-e8fe2a9e6f41)
 
                                              Fichier Gerber
+                                             
+![IMG_1794](https://github.com/user-attachments/assets/38ad4882-ad03-4d1a-b34d-351fe466d517)
+
+
+                                              PCB imprimé
+                                              
 
 ## Code Arduino
 
