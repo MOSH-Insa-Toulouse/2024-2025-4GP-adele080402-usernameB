@@ -106,12 +106,12 @@ Nous n'avons malheureusement pas eu le loisir d'être très créative car nous a
 Pour l'application android, nous
 
 
-### DATASHEET
+## Datasheet
 
 Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre capteur, tout en essayant de bien en expliquer son fonctionnement. La datasheet donne également un exemple d'application, celui que l'on a expérimenté justement au cours de ce projet.
 
 
-### Tests de notre capteur et relevé de valeurs
+## Tests de notre capteur et relevé de valeurs
 
 
 ![Capture d'écran 2025-05-22 152802](https://github.com/user-attachments/assets/5ec3c751-0294-42a1-8ead-dd8882eba561)
