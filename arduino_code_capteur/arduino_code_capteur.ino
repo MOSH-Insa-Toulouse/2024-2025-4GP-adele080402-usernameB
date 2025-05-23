@@ -95,6 +95,8 @@ const float R_DIV = 10000.0;  // resistor used to create a voltage divider
 const float flatResistance = 36000.0; // resistance when flat
 const float bendResistance = 102000.0;  // resistance at 90 deg
 const float kohm = 0.001; //convert resistance value to kohms (simplifies the display)
+char buffer_flex[15];
+char tabFlex[15];
 
 //Graphite sensor
 const int graphPin = A0;
@@ -103,6 +105,8 @@ const float R4 = 100000;
 float R2 = 50000; //A modifier c'est la valeur du pot digital
 const float R5 = 10000;
 const float Mohm = 0.000001;
+char buffer[15];
+char tabGraphite[15];
 
 
 // Digital Potentiometer
@@ -229,10 +233,28 @@ float graphiteMeasure () {
 // }
 
 void bluetoothData () {
-  
-  float R = graphiteMeasure();
-  Bluetooth.write(R/4);
-    
+
+  float Vgraphite = graphiteMeasure() * 5.0/1024.0;
+  float Rg = (R8*(1+R4/R2)*(VCC/Vgraphite)-R8-R5)*kohm;
+  float Vflex = analogRead(flexPin) *5.0/1024;
+  float Rflex = (R_DIV * (5 / Vflex - 1.0))*kohm;
+
+  dtostrf(Rg, 4, 2, buffer);
+  sprintf(tabGraphite, "%s\n", buffer);
+  Bluetooth.print(tabGraphite);
+
+  // dtostrf(Vgraphite, 4, 2, buffer_flex);
+  // sprintf(tabFlex, "%s\n", buffer_flex);
+  // Bluetooth.write(tabFlex);
+  Serial.println(tabGraphite);
+
+  // if (Bluetooth.available()) {
+  //   // Lit les données reçues depuis le module Bluetooth
+  //   char receivedChar = Bluetooth.read();
+  //   // Affiche les données reçues sur le moniteur série
+  //   Serial.print(receivedChar);
+  // }
+  delay(300);
 }
 
 
@@ -327,12 +349,12 @@ void potMenu(float Rdp) {
 
 
 void loop() {
-flexMeasure();
+// flexMeasure();
 // graphiteMeasure();
-// graphiteMenu(graphiteMeasure());
+// // graphiteMenu(graphiteMeasure());
+// // delay(1000);
+// flexMenu(flexMeasure());
 // delay(1000);
-flexMenu(flexMeasure());
-delay(1000);
 // potMenu(digitalPotWrite(0));
 // delay(1000);
 //digitalPotWrite(0);
