@@ -86,16 +86,24 @@ Nous avons rédigé les codes de chaque composant indépendamment pour les teste
 Le plus difficile à coder était l'encodeur rotatoire. Nous avons essayé de nombreuses fois, en nous inspirant des codes des années précédentes, ou des codes présents sur internet (https://passionelectronique.fr/encodeur-rotatif-incremental-mecanique/).
 Cependant, nous n'avons pas réussi à écrire un code fonctionel qui nous permettait de naviguer entre les menus que nous avions créé. Nous avons décidé de garder les menus pour les différents composants (flex sensor, graphite sensor et potentiomètre digital) dans le code, pour pouvoir y accéder si besoin, et si de prochaines personnes voudraient tenter de rajouter la navigation entre les menus plus tard. 
 
-Nous n'avons malheureusement pas eu le loisir d'être très créative car nous avons passé beaucoup de temps à décortiquer le fonctionnement et l'écriture du code pour chaque composant.
+Nous n'avons malheureusement pas eu le loisir d'être très créative car nous avons passé beaucoup de temps à décortiquer le fonctionnement et l'écriture du code pour chaque composant. Nous avons tout de même souhaité personnaliser notre projet en rajoutant un écran d'acueil à l'initialisation de l'écran OLED, qu'on peut voir sur  la photo ci-dessous. 
+
+                        [INSERER PHOTO ECRAN ACCUEIL]
+
 
 ## Application Android
 
-Pour l'application android,
+Pour l'application android, nous
 
 
 ### DATASHEET
 
-Pour écrire la datasheet, plusieurs problèmes :
+Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre capteur, tout en essayant de bien en expliquer son fonctionnement. Nous avons 
+
+
+### Tests de notre capteur et relevé de valeurs
+
+
 
 - HB : marche bien, on a pu effectuer les mesures
 - B : résistance bloquée à deux valeurs : 188 et 191 même si on tord dans tous les sens
