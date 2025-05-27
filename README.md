@@ -42,13 +42,10 @@ Tout d'abord, nous avons dû reprendre le circuit que nous avions réalisé sur 
 Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous avons modéliser le circuit amplificateur, ainsi que différents dispositifs également présents sur notre PCB : 
 
 - le potentiomètre digital 
-(INSERER UNE PHOTO)
 
 - l'encodeur rotatoire
-(INSERER UNE PHOTO)
 
 - l'écran OLED
-(INSERER UNE PHOTO)
 
 Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments, nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois, mais nous avons réussi à réaliser notre PCB avec seulement 3 vias. Nous avons disposé un plan de masse afin de simplifier le circuit. 
 Une fois validé par Cathy et M. Grisolia, nous avons pu passer à l'impression.
