@@ -121,21 +121,10 @@ int pos = 0;      // pour déterminer R2 (potentiomètre) (0<pos<255) , plus pos
 
 
 // Rotatory Encoder 
-#define encodeur0pinA 2
-#define encodeur0pinB 4
+#define encoder0pinA 2
+#define encoder0pinB 4
 #define SWITCHpin 5
-// int encodeurVal = 0;
-// int lastEncodeurVal = 0;
-// int encodeurValB =0;
-// bool buttonPressed = false;
-
-// //Menu variables
-// volatile int menuIndex = 0;
-// int lastMenuIndex = -1;
-// bool inSubMenu = false;
-// int currentMenu =-1; // valeur du menu principal
-// String menus[] = {"graph","flex","pot"};
-// const int menuCount = sizeof(menus) / sizeof(menus[0]);
+volatile unsigned int encoder0Pos = 0;
 
 
 #define baudrate 9600
@@ -162,8 +151,8 @@ void setup() {
   pinMode(txPin,OUTPUT);
   pinMode(flexPin, INPUT);
   pinMode(CSpin, OUTPUT);
-  // pinMode(encodeur0pinA,INPUT);
-  // pinMode(encodeur0pinB,INPUT);
+  pinMode(encoder0pinA,INPUT);
+  pinMode(encoder0pinB,INPUT);
   // pinMode(SWITCHpin, INPUT);
 
 
@@ -173,10 +162,10 @@ void setup() {
   SPI.begin();
   int R2 = digitalPotWrite(pos);
 
-  // //Encodeur rotatoire setup
-  // digitalWrite(encodeur0pinA, HIGH);
-  // digitalWrite(encodeur0pinB, HIGH);
-  // // attachInterrupt(0,doEncoder,RISING);
+  //Encodeur rotatoire setup
+  digitalWrite(encoder0pinA, HIGH);
+  digitalWrite(encoder0pinB, HIGH);
+  attachInterrupt(0,doEncoder,RISING);
 
 }
 
@@ -225,13 +214,6 @@ float graphiteMeasure () {
 
 //////////////BLUETOOTH/////////////////////////////
 
-// void bluetooth () {
-//   int analogValue = analogRead(graphPin);
-//   float Y = analogValue;
-//   Bluetooth.println(Y);
-//   delay(200);
-// }
-
 void bluetoothData () {
 
   float Vgraphite = graphiteMeasure() * 5.0/1024.0;
@@ -243,17 +225,8 @@ void bluetoothData () {
   sprintf(tabGraphite, "%s\n", buffer);
   Bluetooth.print(tabGraphite);
 
-  // dtostrf(Vgraphite, 4, 2, buffer_flex);
-  // sprintf(tabFlex, "%s\n", buffer_flex);
-  // Bluetooth.write(tabFlex);
   Serial.println(tabGraphite);
 
-  // if (Bluetooth.available()) {
-  //   // Lit les données reçues depuis le module Bluetooth
-  //   char receivedChar = Bluetooth.read();
-  //   // Affiche les données reçues sur le moniteur série
-  //   Serial.print(receivedChar);
-  // }
   delay(300);
 }
 
@@ -345,21 +318,36 @@ void potMenu(float Rdp) {
 }
 //////////////////////////////////////////////////////////////////////////////
 
+///////////////////////// Encodeur Rotatoire //////////////////////////////////
 
+void doEncoder() {
+  if (digitalRead(encoder0pinA) == HIGH && digitalRead(encoder0pinB)== HIGH) {
+    encoder0Pos++;
+    pos++;
+    delay(300);
+    if (pos >= 255) {
+      pos = 255;
+    }
+  } else if (digitalRead(encoder0pinA) == HIGH && digitalRead(encoder0pinB)== LOW) {
+    encoder0Pos--;
+    pos--; 
+    if (pos <= 1) {
+      pos = 1;
+    }
+    delay(300);
+  }
+}
 
+////////////////////////////////////////////////////////////////////////////////
 
 void loop() {
-// flexMeasure();
-// graphiteMeasure();
-// // graphiteMenu(graphiteMeasure());
-// // delay(1000);
-// flexMenu(flexMeasure());
-// delay(1000);
-// potMenu(digitalPotWrite(0));
-// delay(1000);
-//digitalPotWrite(0);
-// delay(500);
-// flexMenu(flexMeasure());
+
+graphiteMenu(graphiteMeasure());
+delay(5000);
+flexMenu(flexMeasure());
+delay(5000);
+potMenu(digitalPotWrite(pos));
+delay(5000);
 bluetoothData();
-// delay(500);
+delay(500);
 }
