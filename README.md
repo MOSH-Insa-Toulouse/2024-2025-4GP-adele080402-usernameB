@@ -98,7 +98,7 @@ Cependant, nous n'avons pas réussi à écrire un code fonctionel qui nous perme
 
 Nous n'avons malheureusement pas eu le loisir d'être très créative car nous avons passé beaucoup de temps à décortiquer le fonctionnement et l'écriture du code pour chaque composant. Nous avons tout de même souhaité personnaliser notre projet en rajoutant un écran d'acueil à l'initialisation de l'écran OLED, qu'on peut voir sur  la photo ci-dessous. 
 
-Écran_accueil_OLED.png$
+https://github.com/MOSH-Insa-Toulouse/2024-2025-4GP-adele080402-usernameB/blob/main/Images%20Projet/E%CC%81cran_accueil_OLED.png
 
                         [INSERER PHOTO ECRAN ACCUEIL]
 
