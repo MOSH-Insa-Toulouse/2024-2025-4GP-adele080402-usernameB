@@ -118,17 +118,19 @@ Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre c
 ![Capture d'écran 2025-05-22 152732](https://github.com/user-attachments/assets/c512df0d-f794-4e0d-974d-6224edc2126a)
 
 Pour les relevés de valeur, nous avons rencontré uun problème de consistance dans les mesures.
-Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avons dû improviser et tester le capteur avec des objets circulaire dont le diamètre variait assez pour avoir des données pertinentes. Ci-dessous est une photos des objets que nous avons utilisé.
+Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avons dû improviser et tester le capteur avec des objets circulaires dont le diamètre variait suffisamment pour avoir des données pertinentes. Ci-dessous est une photos des objets que nous avons utilisés.
+
+AJOUTER L'IMAGE (je l'ai mise deja dans les images, c'est le banc de test)
 
 Nous avons essayé de suivre un protocole de mesure afin d'avoir les mesures les plus pertinentes possible. Cependant, nous n'avons pas eu des mesures très satisfaisantes. 
-Plus la mine de crayon est dure (2H), plus le capteur va être sensible et les valeurs vont fluctuer beaucoup, alors même que le capteur est immobile et qu'on n'y applique aucune déformation.
-Inversement, plus la mine de crayon est grasse (6B), moins le capteur va être sensible et les valeurs vont rester très stables, et on n'observera aucun changement de résistance même en appliquant une forte déformation.
+Plus la mine de crayon est dure (2H), plus le capteur va être sensible et les valeurs vont fluctuer significativement, alors même que le capteur est immobile et qu'on n'y applique aucune déformation.
+Inversement, plus la mine de crayon est grasse (6B), moins le capteur va être sensible et les valeurs vont rester très stables. On n'observera donc aucun changement de résistance, même en appliquant une forte déformation.
 
-Aussi, la manière de déposer le graphite influence beaucoup les valeurs.
+Aussi la manière de déposer le graphite influence-t-elle beaucoup les valeurs obtenues.
 
-Ns n'avons réussi a relever des valeurs uniquement pour les mines B et HB. Sinon, les valeurs n'étaient pas pertinentes malheureusement.
+Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pour les autres mines testées, les valeurs n'étaient  malheureusement pas pertinentes.
 
-- HB : marche bien, on a pu effectuer les mesures
-- B : résistance bloquée à deux valeurs : 188 et 191 même si on tord dans tous les sens
-- 6B : pareil mais bloqué a 650
-- 2H ça fluctue trop on n'arrive pas à avoir de données stable
+- HB : Mine avec laquelle le relevé de données a été concluant.
+- B : Les valeurs de résistance mesurées avec cette mine restent bloquées à deux valeurs : 188 (????KOHM OU MOHM?????) et 191, même si la déformation appliquée est très importante.
+- 6B : Problème semblable à la mine B, avec une valeur de résistance bloquée à 650 (???????).
+- 2H : Les valeurs de résistance mesurées fluctue trop, nous ne parvenons pas à avoir de données stables. 
