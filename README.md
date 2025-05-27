@@ -28,7 +28,7 @@ Pour ce faire, nous avons réalisé un PCB à partir du logiciel KiCad, que nous
 
 ## Simulation du montage sur LTSpice
 
-Avant de se lancer dans la réalisation, nous avons réalisé le montage sur LTSpice. Cela nous a permis de comprendre comment l'arduino Uno pouvait acquérir les données du capteur. En effet, sans mettre en place un circuit transimpédance, nous ne serions pas en capacité d'acquérir des valeurs de résistances aussi élevées (k-M Ohms), puisque le courant résultant à acquérir avec un générateur 5V est très faible.
+Avant de commencer la réalisation concrète de notre projet, nous avons réalisé le montage qui sera réalisé physiquement sur LTSpice. Cette simulation nous a permis de comprendre comment l'arduino Uno pouvait acquérir les données du capteur. En effet, sans mettre en place un circuit transimpédance, nous ne serions pas en capacité d'acquérir des valeurs de résistance aussi élevées (k-M Ohms), puisque le courant résultant à acquérir avec un générateur 5V est très faible.
 
 ![montage avec capteur image](https://github.com/user-attachments/assets/28f1d7cc-1f73-464c-ba3b-776b41706680)
 
@@ -36,8 +36,8 @@ Avant de se lancer dans la réalisation, nous avons réalisé le montage sur LTS
 ## Création du PCB
 ### KiCad
 
-Pour commencer le projet, nous avons dû apprivoiser le logiciel KiCad. Nous avons eu du mal à assimiler les différentes choses à faire mais nous avons finalement réussi à imprimer notre PCB sans embûches. 
-Tout d'abord, nous avons dû reprendre le circuit que nous avions réalisé sur LTSpice qui simulait le circuit final. 
+Pour commencer le projet, nous avons dû nous familiariser avec le logiciel KiCad. Au premier abord, nous avons eu du mal à assimiler les différentes étapes à effectuer, de part la diversité de ces dernières dans le logiciel KiCad. Nous avons finalement réussi à imprimer notre PCB dans les temps et sans problème. 
+Premièrement, nous avons dû reprendre le circuit que nous avions réalisé sur LTSpice qui simulait le circuit final. 
 
 Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous avons modéliser le circuit amplificateur, ainsi que différents dispositifs également présents sur notre PCB : 
 
@@ -47,8 +47,8 @@ Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous
 
 - l'écran OLED
 
-Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments, nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois, mais nous avons réussi à réaliser notre PCB avec seulement 3 vias. Nous avons disposé un plan de masse afin de simplifier le circuit. 
-Une fois validé par Cathy et M. Grisolia, nous avons pu passer à l'impression.
+Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments, nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois afin de limiter le nombre de vias et trouver la meilleure organisation possible. Nous avons finalement réussi à réaliser notre PCB avec seulement 3 vias, avec notamment un plan de masse que nous avons disposé afin de simplifier le circuit. 
+Une fois validé, nous avons pu passer à l'impression.
 
 ### Schéma complet
 
@@ -71,8 +71,8 @@ Une fois validé par Cathy et M. Grisolia, nous avons pu passer à l'impression.
 
 ### Impression du PCB
 
-Pour imprimer le PCB, nous avons d'abord dû télécharger le fichier .gerber. Nous avons envoyé tout nos fichiers KiCad à Cathy qui nous a donné rendez vous au GEI. Là-bas, elle nous a expliqué toute la procédure.
-Une fois la plaquette dessinée, nous sommes allés percer la plaque (les diamètres sont de 0,8mm pour les composants, et 1mm pour les pins de l'arduino). Ensuite, nous avons soudé tous les composants. Cette partie était assez rapide.
+Pour imprimer le PCB, nous avons dû télécharger le fichier .gerber. Nous avons envoyé tous nos fichiers KiCad à Catherine Crouzet (Cathy), qui nous a donné rendez vous au GEI. Sur place, elle nous a expliqué toute la procédure. Le développement a été fait grâce au masque (fichier Gerber ci-dessus mentionné) placé sur une plaquette vierge et passé aux UVs, puis aux bains de développement.
+Une fois la plaquette dessinée, nous sommes allées percer la plaquette (les diamètres sont de 0,8mm pour les composants, et 1mm pour les pins de l'Arduino). Ensuite, nous avons soudé tous les composants. Cette partie était relativement rapide.
 
 ![image](https://github.com/user-attachments/assets/4790fe7c-b90f-444d-9095-e8fe2a9e6f41)
 
@@ -82,18 +82,23 @@ Une fois la plaquette dessinée, nous sommes allés percer la plaque (les diamè
 
 
                                               PCB imprimé
+
+METTRE UNE PHOTO DE LA PLAQUETTE FINALE (OU PEUT ÊTRE JUSTE AVEC LES COMPOSANTS SOUDÉS MAIS GENRE SANS LES MODULES DESSUS JSP)
+
+                                      PCB avec les composants soudés
                                               
 
 ## Code Arduino
 
 Nous avons ensuite rédigé le code .ino, écrit en C++.
 Pour ce faire, nous nous sommes inspirés des codes étudiés durant les TPs/TDs tout au long du deuxième semestre, qui nous ont permis de mieux comprendre comment fonctionnait chaque composant.
-Nous avons rédigé les codes de chaque composant indépendamment pour les tester un par un, puis nous avons écrit le code en rajoutant peu à peu les codes fonctionnels et en les reliant les uns aux autres.
+Nous avons rédigé les codes de chaque composant indépendamment afin de pouvoir les tester un à un, puis nous avons écrit le code en rajoutant peu à peu les codes fonctionnels et en les reliant les uns aux autres.
 
 Le plus difficile à coder était l'encodeur rotatoire. Nous avons essayé de nombreuses fois, en nous inspirant des codes des années précédentes, ou des codes présents sur internet (https://passionelectronique.fr/encodeur-rotatif-incremental-mecanique/).
-Cependant, nous n'avons pas réussi à écrire un code fonctionel qui nous permettait de naviguer entre les menus que nous avions créé. Nous avons décidé de garder les menus pour les différents composants (flex sensor, graphite sensor et potentiomètre digital) dans le code, pour pouvoir y accéder si besoin, et si de prochaines personnes voudraient tenter de rajouter la navigation entre les menus plus tard. Nous avons tout de même voulu utiliser l'encodeur rotatoire, donc nous avons rajouté une fonction permettant de faire varier la valeur du potentiomètre digital grâce à l'encodeur.
+Cependant, nous n'avons pas réussi à écrire un code fonctionnel qui nous permettait de naviguer entre les menus que nous avions créés. Nous avons décidé de garder les menus pour les différents composants (flex sensor, graphite sensor et potentiomètre digital) dans le code, pour pouvoir y accéder si besoin, ainsi que si de prochaines personnes voudraient essayer de rajouter la navigation entre les menus. 
+Nous avons néanmoins voulu utiliser l'encodeur rotatoire, donc nous avons rajouté une fonction permettant de faire varier la valeur du potentiomètre digital grâce à l'encodeur.
 
-Nous n'avons malheureusement pas eu le loisir d'être très créative car nous avons passé beaucoup de temps à décortiquer le fonctionnement et l'écriture du code pour chaque composant. Nous avons tout de même souhaité personnaliser notre projet en rajoutant un écran d'acueil à l'initialisation de l'écran OLED, qu'on peut voir sur  la photo ci-dessous. 
+Nous n'avons malheureusement pas eu le loisir d'être très créatives car nous avons passé beaucoup de temps à décortiquer le fonctionnement et l'écriture du code pour chaque composant. Nous avons tout de même souhaité personnaliser notre projet en rajoutant un écran d'accueil à l'initialisation de l'écran OLED, qu'on peut voir sur la photo ci-dessous. 
 
 <img width="883" alt="E´cran_accueil_OLED" src="https://github.com/user-attachments/assets/3309307b-484f-4732-bbc9-c4adbf6e0e1a" />
 
@@ -102,12 +107,22 @@ Nous n'avons malheureusement pas eu le loisir d'être très créative car nous a
 
 ## Application Android
 
-Pour l'application android, nous
+Pour l'application android, nous avons rencontré de nombreux problèmes au cours de son développement sur MIT App Inventor. Le premier était simplement un problème d'affichage des données récupérer sur le graphique intéractif. Mais par la suite, nous ne pouvions même plus connecter notre téléphone à l'application, ce qui a nettement ralenti le développement de cette dernière, ainsi que son résultat final.
+Nous avons finalement une application à laquelle nous pouvons nous connecter, qui récupère les données affichées simultanément sur l'écran OLED, trace un graphique en temps réel, et contient un bouton RESET.
+
+
+
+
+METTRE UNE PHOTO DE L'INTERFACE DE L'APPLICATION AVEC LE GRAPHE. EST CE QU'ON PRÉCISE QUE LES UNITÉS S'AFFICHENT PAS?
+
+                                              Interface de l'application Android
+
+
 
 
 ## Datasheet
 
-Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre capteur, tout en essayant de bien en expliquer son fonctionnement. La datasheet donne également un exemple d'application, celui que l'on a expérimenté justement au cours de ce projet.
+Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre capteur, tout en essayant de bien en expliquer son fonctionnement. Nous nous sommes basées sur les datasheets que nous avons pu étudier en cours au début du semestre, ainsi que toutes celles utilisées dans le cadre de nos études ou vies personnelles. La datasheet donne également un exemple d'application que l'on a expérimenté  au cours de ce projet.
 
 
 ## Tests de notre capteur et relevé de valeurs
@@ -117,18 +132,20 @@ Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre c
 
 ![Capture d'écran 2025-05-22 152732](https://github.com/user-attachments/assets/c512df0d-f794-4e0d-974d-6224edc2126a)
 
-Pour les relevés de valeur, nous avons rencontré uun problème de consistance dans les mesures.
-Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avons dû improviser et tester le capteur avec des objets circulaire dont le diamètre variait assez pour avoir des données pertinentes. Ci-dessous est une photos des objets que nous avons utilisé.
+Pour les relevés de valeur, nous avons rencontré un problème de consistance dans les mesures.
+Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avons dû improviser et tester le capteur avec des objets circulaires dont le diamètre variait suffisamment pour avoir des données pertinentes. Ci-dessous est une photo des objets que nous avons utilisés.
+
+AJOUTER L'IMAGE (je l'ai mise deja dans les images, c'est le banc de test)
 
 Nous avons essayé de suivre un protocole de mesure afin d'avoir les mesures les plus pertinentes possible. Cependant, nous n'avons pas eu des mesures très satisfaisantes. 
-Plus la mine de crayon est dure (2H), plus le capteur va être sensible et les valeurs vont fluctuer beaucoup, alors même que le capteur est immobile et qu'on n'y applique aucune déformation.
-Inversement, plus la mine de crayon est grasse (6B), moins le capteur va être sensible et les valeurs vont rester très stables, et on n'observera aucun changement de résistance même en appliquant une forte déformation.
+Plus la mine de crayon est dure (2H), plus le capteur va être sensible et les valeurs vont fluctuer significativement, alors même que le capteur est immobile et qu'on n'y applique aucune déformation.
+Inversement, plus la mine de crayon est grasse (6B), moins le capteur va être sensible et les valeurs vont rester très stables. On n'observera donc aucun changement de résistance, même en appliquant une forte déformation.
 
-Aussi, la manière de déposer le graphite influence beaucoup les valeurs.
+Aussi la manière de déposer le graphite influence-t-elle beaucoup les valeurs obtenues.
 
-Ns n'avons réussi a relever des valeurs uniquement pour les mines B et HB. Sinon, les valeurs n'étaient pas pertinentes malheureusement.
+Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pour les autres mines testées, les valeurs n'étaient  malheureusement pas pertinentes.
 
-- HB : marche bien, on a pu effectuer les mesures
-- B : résistance bloquée à deux valeurs : 188 et 191 même si on tord dans tous les sens
-- 6B : pareil mais bloqué a 650
-- 2H ça fluctue trop on n'arrive pas à avoir de données stable
+- HB : Mine avec laquelle le relevé de données a été concluant.
+- B : Les valeurs de résistance mesurées avec cette mine restent bloquées à deux valeurs : 188 (????KOHM OU MOHM?????) et 191, même si la déformation appliquée est très importante.
+- 6B : Problème semblable à la mine B, avec une valeur de résistance bloquée à 650 (???????).
+- 2H : Les valeurs de résistance mesurées fluctue trop, nous ne parvenons pas à avoir de données stables. 
