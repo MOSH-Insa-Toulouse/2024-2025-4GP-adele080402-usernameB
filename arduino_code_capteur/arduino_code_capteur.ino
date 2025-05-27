@@ -90,11 +90,11 @@ SoftwareSerial Bluetooth(rxPin ,txPin); //Definition du software serial
 
 // Flex Sensor commercial
 const int flexPin = A1;
-const float VCC = 5.0;      // voltage at Arduino 5V line
-const float R_DIV = 10000.0;  // resistor used to create a voltage divider
-const float flatResistance = 36000.0; // resistance when flat
-const float bendResistance = 102000.0;  // resistance at 90 deg
-const float kohm = 0.001; //convert resistance value to kohms (simplifies the display)
+const float VCC = 5.0;                    // Tension de l'arduino
+const float R_DIV = 10000.0;              // resistance pour créer le pont diviseur de tension
+const float flatResistance = 36000.0;     // resistance quand le flex est à plat
+const float bendResistance = 102000.0;    // resistance quand le flex est courbé à 90 degrés
+const float kohm = 0.001;                 //convertit la resistance en kohms (simplifie l'affichage)
 char buffer_flex[15];
 char tabFlex[15];
 
@@ -102,7 +102,7 @@ char tabFlex[15];
 const int graphPin = A0;
 const float R8 = 100000;
 const float R4 = 100000;
-float R2 = 50000; //A modifier c'est la valeur du pot digital
+float R2 = 50000;               //Valeur du potentiomètre digital à l'initialisation
 const float R5 = 10000;
 const float Mohm = 0.000001;
 char buffer[15];
@@ -117,8 +117,8 @@ char tabGraphite[15];
 #define MCP_WRITE 0b00010001
 #define MCP_SHTDWN 0b00100001
 const byte address = 0x11;
-int pos = 0;      // pour déterminer R2 (potentiomètre) (0<pos<255) , plus pos -> 0, plus R2 est grand
-
+int pos = 0;                                   // pour déterminer R2 (potentiomètre) (0<pos<255) , plus pos -> 0, plus R2 est grand
+int lastA = LOW;
 
 // Rotatory Encoder 
 #define encoder0pinA 2
@@ -136,7 +136,7 @@ void setup() {
 
   // Initialisation de l'écran OLED
   if(!ecranOLED.begin(SSD1306_SWITCHCAPVCC, adresseI2CecranOLED)){
-    while(1);                               // Arrêt du programme (boucle infinie) si échec d'initialisation
+    while(1);                                                           // Arrêt du programme (boucle infinie) si échec d'initialisation
   }
   
   ecranOLED.clearDisplay();                                            // Effaçage de l'intégralité du buffer
@@ -178,7 +178,7 @@ float digitalPotWrite (int value){
   SPI.transfer(value);
   digitalWrite(CSpin, HIGH);
   float Rdp = (50000.0 * (255 - value)) / 255.0; 
-  //Serial.println(Rdp);
+  Serial.println(Rdp);
   return Rdp;
 }
 
@@ -186,13 +186,11 @@ float digitalPotWrite (int value){
 
 float flexMeasure() {
 
-  // Read the ADC, and calculate voltage and resistance from it
-  int ADCflex = analogRead(flexPin);
+  int ADCflex = analogRead(flexPin);                                          // Lit la tension ADC pour calculer la résistance
   float Vflex = ADCflex * VCC / 1024.0;
   float Rflex = (R_DIV * (VCC / Vflex - 1.0))*kohm;
   Serial.println("Resistance : " + String(Rflex) + " kohms");
-  // Use the calculated resistance to estimate the sensor's bend angle:
-  float angle = map(Rflex/kohm, flatResistance, bendResistance, 0, 90.0);
+  float angle = map(Rflex/kohm, flatResistance, bendResistance, 0, 90.0);     // Utilise la résistance calculée pour avoir l'angle
   Serial.println("Bend : " + String(angle) + " degrees");
   Serial.println();
   delay(100);
@@ -225,9 +223,7 @@ void bluetoothData () {
   sprintf(tabGraphite, "%s\n", buffer);
   Bluetooth.print(tabGraphite);
 
-  Serial.println(tabGraphite);
-
-  delay(300);
+  // Serial.println(tabGraphite);
 }
 
 
@@ -251,7 +247,6 @@ void graphiteMenu(float V) {
   ecranOLED.clearDisplay(); // Effaçage de l'intégralité du buffer
   ecranOLED.setCursor(0, 0);
 
-  //for(byte numeroDeLigne=1; numeroDeLigne<=8; numeroDeLigne++) {
   int tailleDeCaractere=1;
   float Vadc = V*5.0/1024;
 
@@ -312,7 +307,6 @@ void potMenu(float Rdp) {
   ecranOLED.println();
   ecranOLED.print("             BACK");
 
-  delay(500);
   ecranOLED.display();
   
 }
@@ -321,33 +315,33 @@ void potMenu(float Rdp) {
 ///////////////////////// Encodeur Rotatoire //////////////////////////////////
 
 void doEncoder() {
-  if (digitalRead(encoder0pinA) == HIGH && digitalRead(encoder0pinB)== HIGH) {
-    encoder0Pos++;
-    pos++;
-    delay(300);
-    if (pos >= 255) {
-      pos = 255;
+
+  int currentA = digitalRead(encoder0pinA);
+  if (currentA != lastA && currentA == HIGH) {
+    if (digitalRead(encoder0pinB) == LOW) {
+      pos++;                                    // sens horaire
+    } else {
+      pos--;                                    // sens anti-horaire
     }
-  } else if (digitalRead(encoder0pinA) == HIGH && digitalRead(encoder0pinB)== LOW) {
-    encoder0Pos--;
-    pos--; 
-    if (pos <= 1) {
-      pos = 1;
-    }
-    delay(300);
   }
+    // Limites
+  if (pos > 255) pos = 255;
+  if (pos < 0) pos = 0;
+  lastA = currentA;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 void loop() {
 
-graphiteMenu(graphiteMeasure());
-delay(5000);
-flexMenu(flexMeasure());
-delay(5000);
+doEncoder();
+
+// graphiteMenu(graphiteMeasure());
+// delay(5000);
+// flexMenu(flexMeasure());
+// delay(5000);
 potMenu(digitalPotWrite(pos));
-delay(5000);
-bluetoothData();
-delay(500);
+// delay(5000);
+// bluetoothData();
+
 }
