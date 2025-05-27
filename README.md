@@ -97,6 +97,8 @@ Nous n'avons malheureusement pas eu le loisir d'être très créative car nous a
 
 <img width="883" alt="E´cran_accueil_OLED" src="https://github.com/user-attachments/assets/3309307b-484f-4732-bbc9-c4adbf6e0e1a" />
 
+                                              Écran d'accueil de l'OLED
+
 
 ## Application Android
 
@@ -115,7 +117,7 @@ Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre c
 
 ![Capture d'écran 2025-05-22 152732](https://github.com/user-attachments/assets/c512df0d-f794-4e0d-974d-6224edc2126a)
 
-Pour es relevés de valeur, nous avons rencontré uun problème de consistance dans les mesures.
+Pour les relevés de valeur, nous avons rencontré uun problème de consistance dans les mesures.
 Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avons dû improviser et tester le capteur avec des objets circulaire dont le diamètre variait assez pour avoir des données pertinentes. Ci-dessous est une photos des objets que nous avons utilisé.
 
 Nous avons essayé de suivre un protocole de mesure afin d'avoir les mesures les plus pertinentes possible. Cependant, nous n'avons pas eu des mesures très satisfaisantes. 
