@@ -3,8 +3,8 @@
 ## Description du projet
 
 Nous avons réalisé ce projet dans le cadre de l'UF "du capteur au banc de test en open source hardware", en 4ème année de Génie Physique à l'INSA de Toulouse.
-Le but de ce projet est de réaliser et tester un capteur low-tech, et d'évaluer son fonctionnement par rapport à un capteur commercialisé. Le capteur concerné s'apparente à une jauge d'extensométrie, réalisée avec du papier une mine de graphite.
-Pour ce faire, nous avons réalisé un PCB sur KiCad, que nous avons pu intégrer à une carte arduino UNO afin d'avoir un banc de test complet.
+Le but de ce projet, basé sur l'article "Pencil Drawn Strain Gauges and Chemiresistors on Paper" (Cheng-Wei Lin, Zhibo Zhao, Jaemyung Kim & Jiaxing Huang), est de réaliser et tester un capteur low-tech, et d'évaluer son fonctionnement par rapport à un capteur commercialisé, afin de voir s'il est lui-même industrialisable. Le capteur concerné s'apparente à une jauge de contrainte, réalisée avec du papier recouvert d'une couche de graphite.
+Pour ce faire, nous avons réalisé un PCB à partir du logiciel KiCad, que nous avons pu intégrer à une carte arduino UNO. Cela nous a permis d'effectuer des mesures et de tester notre capteur.
 
 ## Livrables
 
@@ -28,6 +28,10 @@ Pour ce faire, nous avons réalisé un PCB sur KiCad, que nous avons pu intégre
 
 ## Simulation du montage sur LTSpice
 
+Avant de se lancer dans la réalisation, nous avons réalisé le montage sur LTSpice. Cela nous a permis de comprendre comment l'arduino Uno pouvait acquérir les données du capteur. En effet, sans mettre en place un circuit transimpédance, nous ne serions pas en capacité d'acquérir des valeurs de résistances aussi élevées (k-M Ohms), puisque le courant résultant à acquérir avec un générateur 5V est très faible.
+
+![montage avec capteur image](https://github.com/user-attachments/assets/28f1d7cc-1f73-464c-ba3b-776b41706680)
+
 
 ## Création du PCB
 ### KiCad
@@ -38,13 +42,10 @@ Tout d'abord, nous avons dû reprendre le circuit que nous avions réalisé sur 
 Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous avons modéliser le circuit amplificateur, ainsi que différents dispositifs également présents sur notre PCB : 
 
 - le potentiomètre digital 
-(INSERER UNE PHOTO)
 
 - l'encodeur rotatoire
-(INSERER UNE PHOTO)
 
 - l'écran OLED
-(INSERER UNE PHOTO)
 
 Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments, nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois, mais nous avons réussi à réaliser notre PCB avec seulement 3 vias. Nous avons disposé un plan de masse afin de simplifier le circuit. 
 Une fois validé par Cathy et M. Grisolia, nous avons pu passer à l'impression.
@@ -94,7 +95,9 @@ Cependant, nous n'avons pas réussi à écrire un code fonctionel qui nous perme
 
 Nous n'avons malheureusement pas eu le loisir d'être très créative car nous avons passé beaucoup de temps à décortiquer le fonctionnement et l'écriture du code pour chaque composant. Nous avons tout de même souhaité personnaliser notre projet en rajoutant un écran d'acueil à l'initialisation de l'écran OLED, qu'on peut voir sur  la photo ci-dessous. 
 
-                        [INSERER PHOTO ECRAN ACCUEIL]
+<img width="883" alt="E´cran_accueil_OLED" src="https://github.com/user-attachments/assets/3309307b-484f-4732-bbc9-c4adbf6e0e1a" />
+
+                                              Écran d'accueil de l'OLED
 
 
 ## Application Android
@@ -102,21 +105,30 @@ Nous n'avons malheureusement pas eu le loisir d'être très créative car nous a
 Pour l'application android, nous
 
 
-### DATASHEET
+## Datasheet
 
-Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre capteur, tout en essayant de bien en expliquer son fonctionnement. Nous avons 
-
-
-### Tests de notre capteur et relevé de valeurs
+Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre capteur, tout en essayant de bien en expliquer son fonctionnement. La datasheet donne également un exemple d'application, celui que l'on a expérimenté justement au cours de ce projet.
 
 
+## Tests de notre capteur et relevé de valeurs
+
+
+![Capture d'écran 2025-05-22 152802](https://github.com/user-attachments/assets/5ec3c751-0294-42a1-8ead-dd8882eba561)
+
+![Capture d'écran 2025-05-22 152732](https://github.com/user-attachments/assets/c512df0d-f794-4e0d-974d-6224edc2126a)
+
+Pour les relevés de valeur, nous avons rencontré uun problème de consistance dans les mesures.
+Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avons dû improviser et tester le capteur avec des objets circulaire dont le diamètre variait assez pour avoir des données pertinentes. Ci-dessous est une photos des objets que nous avons utilisé.
+
+Nous avons essayé de suivre un protocole de mesure afin d'avoir les mesures les plus pertinentes possible. Cependant, nous n'avons pas eu des mesures très satisfaisantes. 
+Plus la mine de crayon est dure (2H), plus le capteur va être sensible et les valeurs vont fluctuer beaucoup, alors même que le capteur est immobile et qu'on n'y applique aucune déformation.
+Inversement, plus la mine de crayon est grasse (6B), moins le capteur va être sensible et les valeurs vont rester très stables, et on n'observera aucun changement de résistance même en appliquant une forte déformation.
+
+Aussi, la manière de déposer le graphite influence beaucoup les valeurs.
+
+Ns n'avons réussi a relever des valeurs uniquement pour les mines B et HB. Sinon, les valeurs n'étaient pas pertinentes malheureusement.
 
 - HB : marche bien, on a pu effectuer les mesures
 - B : résistance bloquée à deux valeurs : 188 et 191 même si on tord dans tous les sens
 - 6B : pareil mais bloqué a 650
 - 2H ça fluctue trop on n'arrive pas à avoir de données stable
-
-==> On voit que plus le crayon est dur (2H) plus le capteur est sensible et les valeurs fluctuent beaucoup trop
-Plus le capteur est gras, moins il est sensible et la resistance reste bloquée aux même valeurs
-
-==> Impossible de relever des données 
