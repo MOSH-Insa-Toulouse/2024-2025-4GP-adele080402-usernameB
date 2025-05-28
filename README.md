@@ -128,7 +128,7 @@ Nous n'avons malheureusement pas eu le loisir d'être très créatives car nous 
 
 ## Application Android
 
-Pour l'[application Android](./Application Android), nous avons rencontré de nombreux problèmes au cours de son développement sur [MIT App Inventor](https://appinventor.mit.edu/). Le premier était simplement un problème d'affichage des données récupérer sur le graphique intéractif. Mais par la suite, nous ne pouvions même plus connecter notre téléphone à l'application, ce qui a nettement ralenti le développement de cette dernière, ainsi que son résultat final.
+Pour l'[application Android](./Application Android), nous avons rencontré de nombreux problèmes au cours de son développement sur [MIT App Inventor](https://appinventor.mit.edu/). Le premier était simplement un problème d'affichage des données récupérer sur le graphique intéractif. Mais par la suite, nous ne pouvions même plus connecter notre téléphone à l'application, ce qui a nettement ralenti le développement de cette dernière, ainsi que son résultat final.  
 Nous avons finalement une application à laquelle nous pouvons nous connecter, qui récupère les données affichées simultanément sur l'écran OLED, trace un graphique en temps réel, et contient un bouton RESET.
 
 
