@@ -160,7 +160,7 @@ Aussi la manière de déposer le graphite influence-t-elle beaucoup les valeurs 
 
 Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pour les autres mines testées, les valeurs n'étaient  malheureusement pas pertinentes.
 
-- HB : Mine avec laquelle le relevé de données a été concluant.
-- B : Les valeurs de résistance mesurées avec cette mine restent bloquées à deux valeurs : 188 (????KOHM OU MOHM?????) et 191, même si la déformation appliquée est très importante.
+- HB : Mine avec laquelle le relevé de données a été concluant en compression mais moins .
+- B : Mine avec laquelle le relevé de données a été le plus concluant.
 - 6B :Les valeurs de résistance mesurées avec cette mine restent bloquées à une valeur :  à 650(????KOHM OU MOHM?????), même si la déformation appliquée est très importante.
 - 2H : Les valeurs de résistance mesurées fluctuent trop, nous ne parvenons pas à avoir de données stables. 
