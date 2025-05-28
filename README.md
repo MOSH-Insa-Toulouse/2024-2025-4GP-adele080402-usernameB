@@ -13,7 +13,7 @@
 - [Application Android](#application-android)
 - [Datasheet](#datasheet)
 - [Tests de notre capteur et relevé de valeurs](#tests-de-notre-capteur-et-relevé-de-valeurs)
-- [Contacts](#contacts)
+- [Contact](#contact)
 
 
 ## Description du projet
@@ -174,7 +174,7 @@ Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pou
 - 2H : Les valeurs de résistance mesurées fluctuent trop, nous ne parvenons pas à avoir de données stables.
 
 
-## Contacts
+## Contact
 
 Pour toute question ou information complémentaire, vous pouvez nous contacter :  
 •Adèle Hovnanian, hovnanian@insa-toulouse.fr  
