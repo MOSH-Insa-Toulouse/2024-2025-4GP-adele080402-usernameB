@@ -176,6 +176,6 @@ Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pou
 
 ## Contacts
 
-Pour toute question ou information supplémentaire, vous pouvez nous contacter :  
+Pour toute question ou information complémentaire, vous pouvez nous contacter :  
 •Adèle Hovnanian, hovnanian@insa-toulouse.fr  
 •Lola Grammont, grammont@insa-toulouse.fr
