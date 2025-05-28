@@ -13,7 +13,7 @@
 - [Application Android](#application-android)
 - [Datasheet](#datasheet)
 - [Tests de notre capteur et relevé de valeurs](#tests-de-notre-capteur-et-relevé-de-valeurs)
-- [Contacts](#contacts)
+- [Contact](#contact)
 
 
 ## Description du projet
@@ -128,11 +128,11 @@ Nous n'avons malheureusement pas eu le loisir d'être très créatives car nous 
 
 ## Application Android
 
-Pour l'[application Android](./Application Android), nous avons rencontré de nombreux problèmes au cours de son développement sur [MIT App Inventor](https://appinventor.mit.edu/). Le premier était simplement un problème d'affichage des données récupérer sur le graphique intéractif. Mais par la suite, nous ne pouvions même plus connecter notre téléphone à l'application, ce qui a nettement ralenti le développement de cette dernière, ainsi que son résultat final.
+Pour l'[application Android](./Application Android), nous avons rencontré de nombreux problèmes au cours de son développement sur [MIT App Inventor](https://appinventor.mit.edu/). Le premier était simplement un problème d'affichage des données récupérer sur le graphique intéractif. Mais par la suite, nous ne pouvions même plus connecter notre téléphone à l'application, ce qui a nettement ralenti le développement de cette dernière, ainsi que son résultat final.  
 Nous avons finalement une application à laquelle nous pouvons nous connecter, qui récupère les données affichées simultanément sur l'écran OLED, trace un graphique en temps réel, et contient un bouton RESET.
 
 
-![1748431283830](https://github.com/user-attachments/assets/b79a7662-210c-4c93-ae8a-88739742811e)
+<img width="631" alt="Écran_app_graphe_bonformat" src="https://github.com/user-attachments/assets/ac7d8cf2-2519-467d-b080-d136ac1f739d" />
 
 
                                               Interface de l'application Android
@@ -174,8 +174,8 @@ Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pou
 - 2H : Les valeurs de résistance mesurées fluctuent trop, nous ne parvenons pas à avoir de données stables.
 
 
-## Contacts
+## Contact
 
-Pour toute question ou information supplémentaire, vous pouvez nous contacter :
-•Adèle Hovnanian, hovnanian@insa-toulouse.fr
+Pour toute question ou information complémentaire, vous pouvez nous contacter :  
+•Adèle Hovnanian, hovnanian@insa-toulouse.fr  
 •Lola Grammont, grammont@insa-toulouse.fr
