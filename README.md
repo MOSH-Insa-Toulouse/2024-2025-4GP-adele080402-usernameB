@@ -31,12 +31,12 @@ Pour ce faire, nous avons réalisé un PCB à partir du logiciel KiCad, que nous
 
 ## Matériel utilisé
 
-- Ecran OLED : SSD1306
+- Écran OLED : SSD1306
 - Flex sensor
 - Capteur Graphène
 - Encodeur Rotatoire : KY-040
 - Module Bluetooth HC-05
-- Ampli Op : LCT-1050
+- Amplificateur Opérationnel : LCT-1050
 - Potentiomètre Digital : MCP 41050
 - Résistances : 1kOhms, 10kOhms, 100kOhms
 - Capacités : 2x100nF, 1x1uF
