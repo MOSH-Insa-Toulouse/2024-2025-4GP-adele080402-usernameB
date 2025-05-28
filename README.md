@@ -1,8 +1,15 @@
 # PROJET CAPTEUR
 
 ## Sommaire
-- [Descriptionn du projet](#descriptionduprojet)
+- [Description du projet](#descriptionduprojet)
 - [Livrables](#livrables)
+- [Matériel utilisé](#matérielutilisé)
+- [Simulation du montage sur LTSpice](#simulationdumontagesurLTSpice)
+- [Création du PCB](#créationduPCB)
+- [Code Arduino](#codeArduino)
+- [Application Android](#applicationAndroid)
+- [Datasheet](#datasheet)
+- [Tests de notre capteur et relevé de valeurs](#testsdenotrecapteuretrelevédevaleurs)
 
 
 ## Description du projet
