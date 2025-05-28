@@ -97,8 +97,9 @@ Une fois la plaquette dessinée, nous sommes allées percer la plaquette (les di
 
 
                                               PCB imprimé
+                                              
+![PCB-avec-composants-avant](https://github.com/user-attachments/assets/619ce058-29b2-4ae2-ada8-c9c4e57c32f3)
 
-METTRE UNE PHOTO DE LA PLAQUETTE FINALE (OU PEUT ÊTRE JUSTE AVEC LES COMPOSANTS SOUDÉS MAIS GENRE SANS LES MODULES DESSUS JSP)
 
                                       PCB avec les composants soudés
                                               
@@ -126,12 +127,10 @@ Pour l'application android, nous avons rencontré de nombreux problèmes au cour
 Nous avons finalement une application à laquelle nous pouvons nous connecter, qui récupère les données affichées simultanément sur l'écran OLED, trace un graphique en temps réel, et contient un bouton RESET.
 
 
+![1748431283830](https://github.com/user-attachments/assets/b79a7662-210c-4c93-ae8a-88739742811e)
 
-
-METTRE UNE PHOTO DE L'INTERFACE DE L'APPLICATION AVEC LE GRAPHE. EST CE QU'ON PRÉCISE QUE LES UNITÉS S'AFFICHENT PAS?
 
                                               Interface de l'application Android
-
 
 
 
@@ -150,15 +149,19 @@ Pour écrire la datasheet, nous avons décrit toutes les spécifités de notre c
 Pour les relevés de valeur, nous avons rencontré un problème de consistance dans les mesures.
 Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avons dû improviser et tester le capteur avec des objets circulaires dont le diamètre variait suffisamment pour avoir des données pertinentes. Ci-dessous est une photo des objets que nous avons utilisés.
 
-AJOUTER L'IMAGE (je l'ai mise deja dans les images, c'est le banc de test)
+![Banc-de-test](https://github.com/user-attachments/assets/42071f95-ae15-4534-a8f5-408d54358822)
 
+
+                                        Objets utilisés opur le banc de test et leurs diamètres
+
+                                        
 Nous avons essayé de suivre un protocole de mesure afin d'avoir les mesures les plus pertinentes possible. Cependant, nous n'avons pas eu des mesures très satisfaisantes. 
 Plus la mine de crayon est dure (2H), plus le capteur va être sensible et les valeurs vont fluctuer significativement, alors même que le capteur est immobile et qu'on n'y applique aucune déformation.
 Inversement, plus la mine de crayon est grasse (6B), moins le capteur va être sensible et les valeurs vont rester très stables. On n'observera donc aucun changement de résistance, même en appliquant une forte déformation.
 
-Aussi la manière de déposer le graphite influence-t-elle beaucoup les valeurs obtenues.
+Aussi la manière de déposer le graphite influence beaucoup les valeurs obtenues.
 
-Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pour les autres mines testées, les valeurs n'étaient  malheureusement pas pertinentes.
+Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pour les autres mines testées, les valeurs n'étaient malheureusement pas pertinentes.
 
 - HB : Mine avec laquelle le relevé de données a été concluant en compression mais moins .
 - B : Mine avec laquelle le relevé de données a été le plus concluant.
