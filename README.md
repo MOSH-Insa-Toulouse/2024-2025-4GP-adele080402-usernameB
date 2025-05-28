@@ -106,7 +106,7 @@ Une fois la plaquette dessinée, nous sommes allées percer la plaquette (les di
 
 ## Code Arduino
 
-Nous avons ensuite rédigé le code .ino, écrit en C++. [code](./arduino_code_capteur/arduino_code_capteur.ino)
+Nous avons ensuite rédigé le code .ino, écrit en C++. [code](./arduino_code_capteur)
 Pour ce faire, nous nous sommes inspirées des codes étudiés durant les TPs/TDs tout au long du deuxième semestre, qui nous ont permis de mieux comprendre comment fonctionnait chaque composant.
 Nous avons rédigé les codes de chaque composant indépendamment afin de pouvoir les tester un à un, puis nous avons écrit le code en rajoutant peu à peu les codes fonctionnels et en les reliant les uns aux autres.
 
