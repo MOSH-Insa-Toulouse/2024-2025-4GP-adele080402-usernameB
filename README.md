@@ -147,5 +147,5 @@ Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pou
 
 - HB : Mine avec laquelle le relevé de données a été concluant.
 - B : Les valeurs de résistance mesurées avec cette mine restent bloquées à deux valeurs : 188 (????KOHM OU MOHM?????) et 191, même si la déformation appliquée est très importante.
-- 6B : Problème semblable à la mine B, avec une valeur de résistance bloquée à 650 (???????).
-- 2H : Les valeurs de résistance mesurées fluctue trop, nous ne parvenons pas à avoir de données stables. 
+- 6B :Les valeurs de résistance mesurées avec cette mine restent bloquées à une valeur :  à 650(????KOHM OU MOHM?????), même si la déformation appliquée est très importante.
+- 2H : Les valeurs de résistance mesurées fluctuent trop, nous ne parvenons pas à avoir de données stables. 
