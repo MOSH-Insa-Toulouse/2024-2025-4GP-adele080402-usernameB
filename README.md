@@ -106,13 +106,13 @@ Une fois la plaquette dessinée, nous sommes allées percer la plaquette (les di
 
 ## Code Arduino
 
-Nous avons ensuite rédigé le code .ino, écrit en C++. [code](./arduino_code_capteur)
-Pour ce faire, nous nous sommes inspirées des codes étudiés durant les TPs/TDs tout au long du deuxième semestre, qui nous ont permis de mieux comprendre comment fonctionnait chaque composant.
+Nous avons ensuite rédigé le code .ino, écrit en C++. [voir le dossier 'Arduino_code_capteur](./arduino_code_capteur)  
+Pour ce faire, nous nous sommes inspirées des codes étudiés durant les TPs/TDs tout au long du deuxième semestre, qui nous ont permis de mieux comprendre comment fonctionnait chaque composant.  
 Nous avons rédigé les codes de chaque composant indépendamment afin de pouvoir les tester un à un, puis nous avons écrit le code en rajoutant peu à peu les codes fonctionnels et en les reliant les uns aux autres.
 
-Le plus difficile à coder était l'encodeur rotatoire. Nous avons essayé de nombreuses fois, en nous inspirant des codes des années précédentes, ou des codes présents sur internet (https://passionelectronique.fr/encodeur-rotatif-incremental-mecanique/).
-Cependant, nous n'avons pas réussi à écrire un code fonctionnel qui nous permettait de naviguer entre les menus que nous avions créés. Nous avons décidé de garder les menus pour les différents composants (flex sensor, graphite sensor et potentiomètre digital) dans le code, pour pouvoir y accéder si besoin, ainsi que si de prochaines personnes voudraient essayer de rajouter la navigation entre les menus. 
-Nous avons néanmoins voulu utiliser l'encodeur rotatoire, donc nous avons rajouté une fonction permettant de faire varier la valeur du potentiomètre digital grâce à l'encodeur.
+Le plus difficile à coder était l'encodeur rotatoire. Nous avons essayé de nombreuses fois, en nous inspirant des codes des années précédentes, ou des codes présents sur internet (https://passionelectronique.fr/encodeur-rotatif-incremental-mecanique/).  
+Cependant, nous n'avons pas réussi à écrire un code fonctionnel qui nous permettait de naviguer entre les menus que nous avions créés. Nous avons décidé de garder les menus pour les différents composants (flex sensor, graphite sensor et potentiomètre digital) dans le code, pour pouvoir y accéder si besoin, ainsi que si de prochaines personnes voudraient essayer de rajouter la navigation entre les menus.   
+Nous avons néanmoins voulu utiliser l'encodeur rotatoire, donc nous avons rajouté une fonction permettant de faire varier la valeur du potentiomètre digital grâce à l'encodeur.  
 
 Nous n'avons malheureusement pas eu le loisir d'être très créatives car nous avons passé beaucoup de temps à décortiquer le fonctionnement et l'écriture du code pour chaque composant. Nous avons tout de même souhaité personnaliser notre projet en rajoutant un écran d'accueil à l'initialisation de l'écran OLED, qu'on peut voir sur la photo ci-dessous. 
 
@@ -152,7 +152,7 @@ Le banc de test n'étant pas disponible lors de nos relevés de mesure, nous avo
 ![Banc-de-test](https://github.com/user-attachments/assets/42071f95-ae15-4534-a8f5-408d54358822)
 
 
-                                        Objets utilisés opur le banc de test et leurs diamètres
+                                        Objets utilisés pour le banc de test et leurs diamètres
 
                                         
 Nous avons essayé de suivre un protocole de mesure afin d'avoir les mesures les plus pertinentes possible. Cependant, nous n'avons pas eu des mesures très satisfaisantes. 
