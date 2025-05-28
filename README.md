@@ -13,13 +13,14 @@
 - [Application Android](#application-android)
 - [Datasheet](#datasheet)
 - [Tests de notre capteur et relevé de valeurs](#tests-de-notre-capteur-et-relevé-de-valeurs)
+- [Contacts](#contacts)
 
 
 ## Description du projet
 
 Nous avons réalisé ce projet dans le cadre de l'UF "du capteur au banc de test en open source hardware", en 4ème année de Génie Physique à l'INSA de Toulouse.
 Le but de ce projet, basé sur l'article "Pencil Drawn Strain Gauges and Chemiresistors on Paper" (Cheng-Wei Lin, Zhibo Zhao, Jaemyung Kim & Jiaxing Huang), est de réaliser et tester un capteur low-tech, et d'évaluer son fonctionnement par rapport à un capteur commercialisé, afin de voir s'il est lui-même industrialisable. Le capteur concerné s'apparente à une jauge de contrainte, réalisée avec du papier recouvert d'une couche de graphite.
-Pour ce faire, nous avons réalisé un PCB à partir du logiciel KiCad, que nous avons pu intégrer à une carte arduino UNO. Cela nous a permis d'effectuer des mesures et de tester notre capteur.
+Pour ce faire, nous avons réalisé un PCB à partir du logiciel KiCad, que nous avons pu intégrer à une carte Arduino UNO. Cela nous a permis d'effectuer des mesures et de tester notre capteur.
 
 ## Livrables
 
@@ -43,7 +44,7 @@ Pour ce faire, nous avons réalisé un PCB à partir du logiciel KiCad, que nous
 
 ## Simulation du montage sur LTSpice
 
-Avant de commencer la réalisation concrète de notre projet, nous avons réalisé le montage qui sera réalisé physiquement sur LTSpice. Cette simulation nous a permis de comprendre comment l'arduino Uno pouvait acquérir les données du capteur. En effet, sans mettre en place un circuit transimpédance, nous ne serions pas en capacité d'acquérir des valeurs de résistance aussi élevées (k-M Ohms), puisque le courant résultant à acquérir avec un générateur 5V est très faible.
+Avant de commencer la réalisation concrète de notre projet, nous avons réalisé le montage qui sera réalisé physiquement sur [LTSpice](./LTSpice). Cette simulation nous a permis de comprendre comment l'arduino Uno pouvait acquérir les données du capteur. En effet, sans mettre en place un circuit transimpédance, nous ne serions pas en capacité d'acquérir des valeurs de résistance aussi élevées (k-M Ohms), puisque le courant résultant à acquérir avec un générateur 5V est très faible.
 
 ![montage avec capteur image](https://github.com/user-attachments/assets/28f1d7cc-1f73-464c-ba3b-776b41706680)
 
@@ -54,15 +55,19 @@ Avant de commencer la réalisation concrète de notre projet, nous avons réalis
 Pour commencer le projet, nous avons dû nous familiariser avec le logiciel KiCad. Au début, nous avons eu du mal à assimiler les différentes étapes à effectuer, à cause de la diversité de ces dernières dans le logiciel KiCad. Nous avons finalement réussi à imprimer notre PCB dans les temps et sans problème. 
 Premièrement, nous avons dû reprendre le circuit que nous avions réalisé sur LTSpice qui simulait le circuit final. 
 
-Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous avons modéliser le circuit amplificateur, ainsi que différents dispositifs également présents sur notre PCB : 
+Nous avons pris ce modèle pour réaliser la [partie schématique](./KiCad-Shield-Uno-FlexSensor) sur KiCad. Nous avons modélisé le circuit amplificateur, ainsi que différents dispositifs également présents sur notre PCB : 
 
-- le potentiomètre digital 
+- le [potentiomètre digital](./KiCad-Shield-Uno-FlexSensor/MaLibrairieEmpreinte.pretty)  
 
-- l'encodeur rotatoire
+- l'[encodeur rotatoire](./KiCad-Shield-Uno-FlexSensor/MaLibrairieEmpreinte.pretty) 
 
-- l'écran OLED
+- l'[écran OLED](./KiCad-Shield-Uno-FlexSensor/MaLibrairieEmpreinte.pretty)
 
-Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments (que l'on peut retrouver dans le dossier KiCad), nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois afin de limiter le nombre de vias et trouver la meilleure organisation possible. Nous avons finalement réussi à réaliser notre PCB avec seulement 3 vias. Nous avons également utilisé un plan de masse afin de simplifier le circuit. 
+- le [module Bluetooth](./KiCad-Shield-Uno-FlexSensor/MaLibrairieEmpreinte.pretty)
+  
+- l'[amplificateur opérationnel LTC41050](./KiCad-Shield-Uno-FlexSensor/MaLibrairieEmpreinte.pretty)
+
+Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments, nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois afin de limiter le nombre de vias et trouver la meilleure organisation possible. Nous avons finalement réussi à réaliser notre PCB avec seulement 3 vias. Nous avons également utilisé un plan de masse afin de simplifier le circuit. 
 Une fois validé, nous avons pu passer à l'impression.
 
 ### Schéma complet
@@ -86,7 +91,7 @@ Une fois validé, nous avons pu passer à l'impression.
 
 ### Impression du PCB
 
-Pour imprimer le PCB, nous avons dû télécharger le fichier .gerber. Nous avons envoyé tous nos fichiers KiCad à Catherine Crouzet (Cathy), qui nous a donné rendez vous au GEI. Sur place, elle nous a expliqué toute la procédure. Le développement a été fait grâce au masque (fichier Gerber) placé sur une plaquette vierge et passé aux UVs, puis aux bains de développement.
+Pour imprimer le PCB, nous avons dû télécharger le fichier [.gerber](./KiCad-Shield-Uno-FlexSensor/Gerber/KiCad-Shield-Uno-FlexSensor-B_Cu.pdf). Nous avons envoyé tous nos fichiers KiCad à Catherine Crouzet, qui nous a donné rendez-vous au GEI. Sur place, elle nous a expliqué toute la procédure. Le développement a été fait grâce au masque (fichier Gerber) placé sur une plaquette vierge et passé aux UVs, puis aux bains de développement.
 Une fois la plaquette dessinée, nous sommes allées percer la plaquette (les diamètres sont de 0,8mm pour les composants, et 1mm pour les pins de l'Arduino). Ensuite, nous avons soudé tous les composants. Cette partie était relativement rapide.
 
 ![image](https://github.com/user-attachments/assets/4790fe7c-b90f-444d-9095-e8fe2a9e6f41)
@@ -166,4 +171,11 @@ Nous avons réussi à relever des valeurs uniquement pour les mines B et HB. Pou
 - HB : Mine avec laquelle le relevé de données a été concluant en compression mais moins .
 - B : Mine avec laquelle le relevé de données a été le plus concluant.
 - 6B :Les valeurs de résistance mesurées avec cette mine restent bloquées à une valeur :  à 650(????KOHM OU MOHM?????), même si la déformation appliquée est très importante.
-- 2H : Les valeurs de résistance mesurées fluctuent trop, nous ne parvenons pas à avoir de données stables. 
+- 2H : Les valeurs de résistance mesurées fluctuent trop, nous ne parvenons pas à avoir de données stables.
+
+
+## Contacts
+
+Pour toute question ou information supplémentaire, vous pouvez nous contacter :
+•Adèle Hovnanian, hovnanian@insa-toulouse.fr
+•Lola Grammont, grammont@insa-toulouse.fr
