@@ -1,15 +1,15 @@
 # PROJET CAPTEUR
 
 ## Sommaire
-- [Description du projet](#descriptionduprojet)
+- [Description du projet](#description-du-projet)
 - [Livrables](#livrables)
-- [Matériel utilisé](#matérielutilisé)
-- [Simulation du montage sur LTSpice](#simulationdumontagesurLTSpice)
-- [Création du PCB](#créationduPCB)
-- [Code Arduino](#codeArduino)
-- [Application Android](#applicationAndroid)
+- [Matériel utilisé](#matériel-utilisé)
+- [Simulation du montage sur LTSpice](#simulation-du-montage-sur-ltspice)
+- [Création du PCB](#création-du-pcb)
+- [Code Arduino](#code-arduino)
+- [Application Android](#application-android)
 - [Datasheet](#datasheet)
-- [Tests de notre capteur et relevé de valeurs](#testsdenotrecapteuretrelevédevaleurs)
+- [Tests de notre capteur et relevé de valeurs](#tests-de-notre-capteur-et-relevé-de-valeurs)
 
 
 ## Description du projet
