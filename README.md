@@ -48,7 +48,7 @@ Avant de commencer la réalisation concrète de notre projet, nous avons réalis
 ## Création du PCB
 ### KiCad
 
-Pour commencer le projet, nous avons dû nous familiariser avec le logiciel KiCad. Au premier abord, nous avons eu du mal à assimiler les différentes étapes à effectuer, de part la diversité de ces dernières dans le logiciel KiCad. Nous avons finalement réussi à imprimer notre PCB dans les temps et sans problème. 
+Pour commencer le projet, nous avons dû nous familiariser avec le logiciel KiCad. Au début, nous avons eu du mal à assimiler les différentes étapes à effectuer, à cause de la diversité de ces dernières dans le logiciel KiCad. Nous avons finalement réussi à imprimer notre PCB dans les temps et sans problème. 
 Premièrement, nous avons dû reprendre le circuit que nous avions réalisé sur LTSpice qui simulait le circuit final. 
 
 Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous avons modéliser le circuit amplificateur, ainsi que différents dispositifs également présents sur notre PCB : 
@@ -59,7 +59,7 @@ Nous avons pris ce modèle pour réaliser la partie schématique sur KiCad. Nous
 
 - l'écran OLED
 
-Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments, nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois afin de limiter le nombre de vias et trouver la meilleure organisation possible. Nous avons finalement réussi à réaliser notre PCB avec seulement 3 vias, avec notamment un plan de masse que nous avons disposé afin de simplifier le circuit. 
+Ensuite, lorsque nous avons terminé le schématique, nous avons pu passer à l'organisation des éléments du PCB. Après avoir créé les empreintes et importer les bons modèles 3D des différents éléments (que l'on peut retrouver dans le dossier KiCad), nous avons dû disposer de manière la plus optimale ces derniers. Cette étape a été un peu longue et nous avons dû recommencer plusieurs fois afin de limiter le nombre de vias et trouver la meilleure organisation possible. Nous avons finalement réussi à réaliser notre PCB avec seulement 3 vias. Nous avons également utilisé un plan de masse afin de simplifier le circuit. 
 Une fois validé, nous avons pu passer à l'impression.
 
 ### Schéma complet
@@ -83,7 +83,7 @@ Une fois validé, nous avons pu passer à l'impression.
 
 ### Impression du PCB
 
-Pour imprimer le PCB, nous avons dû télécharger le fichier .gerber. Nous avons envoyé tous nos fichiers KiCad à Catherine Crouzet (Cathy), qui nous a donné rendez vous au GEI. Sur place, elle nous a expliqué toute la procédure. Le développement a été fait grâce au masque (fichier Gerber ci-dessus mentionné) placé sur une plaquette vierge et passé aux UVs, puis aux bains de développement.
+Pour imprimer le PCB, nous avons dû télécharger le fichier .gerber. Nous avons envoyé tous nos fichiers KiCad à Catherine Crouzet (Cathy), qui nous a donné rendez vous au GEI. Sur place, elle nous a expliqué toute la procédure. Le développement a été fait grâce au masque (fichier Gerber) placé sur une plaquette vierge et passé aux UVs, puis aux bains de développement.
 Une fois la plaquette dessinée, nous sommes allées percer la plaquette (les diamètres sont de 0,8mm pour les composants, et 1mm pour les pins de l'Arduino). Ensuite, nous avons soudé tous les composants. Cette partie était relativement rapide.
 
 ![image](https://github.com/user-attachments/assets/4790fe7c-b90f-444d-9095-e8fe2a9e6f41)
