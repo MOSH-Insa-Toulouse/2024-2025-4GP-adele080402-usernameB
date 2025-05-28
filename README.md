@@ -132,7 +132,7 @@ Pour l'[application Android](./Application Android), nous avons rencontré de no
 Nous avons finalement une application à laquelle nous pouvons nous connecter, qui récupère les données affichées simultanément sur l'écran OLED, trace un graphique en temps réel, et contient un bouton RESET.
 
 
-![1748431283830](https://github.com/user-attachments/assets/b79a7662-210c-4c93-ae8a-88739742811e)
+<img width="631" alt="Écran_app_graphe_bonformat" src="https://github.com/user-attachments/assets/ac7d8cf2-2519-467d-b080-d136ac1f739d" />
 
 
                                               Interface de l'application Android
