@@ -1,5 +1,10 @@
 # PROJET CAPTEUR
 
+## Sommaire
+- [Descriptionn du projet](#descriptionduprojet)
+- [Livrables](#livrables)
+
+
 ## Description du projet
 
 Nous avons réalisé ce projet dans le cadre de l'UF "du capteur au banc de test en open source hardware", en 4ème année de Génie Physique à l'INSA de Toulouse.
